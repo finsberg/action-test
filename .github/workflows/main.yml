@@ -12,6 +12,7 @@ jobs:
         run: echo "message='Hello world'" >> $GITHUB_OUTPUT
 
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Read output
