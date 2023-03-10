@@ -29,3 +29,21 @@ jobs:
       - name: Read message from env
         run: echo ${{ env.message }}
 
+  upload_aarch64_wheel:    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Get wheel from CircleCI artifact
+        env:
+          JOB_NUMBER: 106
+        run: |
+          export WHEEL_PATH=$(python circleci.py artifact --job-number $JOB_NUMBER)
+          echo "wheel_path=$WHEEL_PATH" >> $GITHUB_ENV
