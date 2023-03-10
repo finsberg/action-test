@@ -12,7 +12,6 @@ jobs:
       - name: Write output
         id: step1
         run: echo "message='Hello world'" >> $GITHUB_OUTPUT
-
   job2:
     needs: job1
     runs-on: ubuntu-latest
@@ -21,8 +20,7 @@ jobs:
           OUTPUT1: ${{ needs.job1.outputs.output1 }}
         name: Read output
         run: echo $OUTPUT1
-
-  env-job:
+  job3:
     runs-on: ubuntu-latest
     steps:
       - name: Write some message to env
