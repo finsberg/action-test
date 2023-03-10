@@ -26,6 +26,6 @@ jobs:
       - name: Write some message to env
         run: echo "message=Hello env" >> $GITHUB_ENV
 
-     - name: Read message from env
+      - name: Read message from env
         run: echo ${{ env.message }}
 
