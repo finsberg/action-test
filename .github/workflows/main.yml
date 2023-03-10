@@ -22,7 +22,7 @@ jobs:
         name: Read output
         run: echo $OUTPUT1
 
-  job3:
+  env-job:
     runs-on: ubuntu-latest
     steps:
       - name: Write some message to env
