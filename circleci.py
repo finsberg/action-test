@@ -23,7 +23,7 @@ def get_artifact(
 
     conn.request(
         "GET",
-        f"/api/v2/project/{vcs}/{org}/{project}/{job_number}/artifacts",
+        f"/api/v2/project/{vcs}/{org}/{project}/{str(job_number)}/artifacts",
         headers=headers,
     )
 
